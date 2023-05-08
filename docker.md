@@ -54,9 +54,11 @@ CMD : we give any image name it change the CMD its cannot effect the entrypoint
 Start: to create the container
 
 Remove container we use 
+
 		 { docker container rm <containername>}
 
 Remove al containers at a time 
+
 		{docker container rm $(docker container ls -a -q )}
 
 ### Volume:

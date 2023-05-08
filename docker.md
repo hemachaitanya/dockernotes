@@ -97,6 +97,41 @@ Alias  prunevolume= ‘docker volume prune $(docker volumels -a -q)’
 
 We replace these alias command by delimage , delcontainer & prunevolume
 
+### Dockerfile
+	dockerfile is a test file . where we write set of instructions / directives to support to create a docker image
+
+### docker image
+	docker image iread only templet or file system which as the necessary files run our application inside the docker container
+
+### docker container vs instance
+	every container has isolated area to cannot destrub them
+	in instance we can't run more applications (spc , gol ,....)
+
+### namespace:
+used to create isolated areas by using isolated areas containers cannot distrub the vm
+
+### layers 
+layes reducess the inefficiency in s/w deployments
+container is a collection of layers
+every run and copy/add commands form one layer
+
+### dockershim:
+	allows the kubelet to interact with docker , it's used for desired state
+
+### docker oci:
+	open container initiative(ex: like hal mark to containers)
+
+### docker swarm :
+	swarm is a container archistration to maintain the container .  k8sn is a best archistration of docker ; swarm has 2 containers 
+		(1) manager (assigned work to worker node)
+		(2) worker 
+		in swarm any one works as a master or worker
+
+
+
+
+
+
 
 
 

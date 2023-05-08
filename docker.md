@@ -82,7 +82,11 @@ Volumes are two types
  it’s machines which running on docker 
 ### Entrypont: 
 its used as a arg (it will never change)
-Cmd : we give any image name it change the CMD its cannot effect the entrypoint (cmd used forrun the application )
+we cannot override the code
+
+Cmd :
+we can over ride the code & its acts as argument for entrypoint
+ we give any image name it change the CMD its cannot effect the entrypoint (cmd used forrun the application )
 
 ### Networking: 
  (ifconfig  & sudo apt install net-tools)we can’t install the docker in our machine we have only two network interfaces those are eth0 & lo, when ever we install docker we check the network by using  ifconfig command add another n/w is docker0.
@@ -151,6 +155,31 @@ every run and copy/add commands form one layer
 		(1) manager (assigned work to worker node)
 		(2) worker 
 		in swarm any one works as a master or worker
+
+### ci/cd pipeline
+
+codebuildby developer
+
+this build code is push into git repository
+
+this code will pull by devops engineer
+
+by using jenkins / azuredevops we build the code(build image)
+
+test this image (automatic test is unit test)
+
+image will scaned(by default software tool is snyk)
+
+the image will be stored in docker hub ,or ECR or ACR 
+
+for maintained desired state of container (we write docker or k8s yaml files)
+
+using k8s to maintaine desired state and end user  can utilize our application continuously
+(no down time )
+
+
+
+
 
 
 

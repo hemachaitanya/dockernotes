@@ -47,9 +47,9 @@ Hosts: it’s machines which running on docker
 
 Entrypont: its used as a arg (it will never change)
 
-args: arguments nothi
+args: arguments nothing but variable
 
-Cmd : we give any image name it change the CMD its cannot effect the entrypoint
+CMD : we give any image name it change the CMD its cannot effect the entrypoint
 
 Start: to create the container
 

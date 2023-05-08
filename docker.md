@@ -57,32 +57,53 @@ Remove container we use  { docker container rm <containername>}
 
 Remove al containers at a time {docker container rm $(docker container ls -a -q )}
 
-Volume: when we delete the container total information can be deleted so we over come this problem to create the volumes
-These volumes are two types those are 
+### Volume:
+ when we delete the container total information can be deleted so we over come this problem to create the volumes
+
+These volumes are two types those are
+
         explicitly(manually): docker volume created by ours
        Automatically:these volume created by docker
+
 Volumes are two types 
-      Bind mount: its connected b/w  file system to container
-      Tmpfs mount: its connected  between container to memory(ram)
-Volume: we give only source
-Mount: we give both source and destination
-Hosts: it’s machines which running on docker 
-Entrypont: its used as a arg (it will never change)
-Cmd : we give any image name it change the CMD its cannot effect the entrypoint
-Networking:  (ifconfig  & sudo apt install net-tools)we can’t install the docker in our machine we have only two network interfaces those are eth0 & lo, when ever we install docker we check the network by using  ifconfig command add another n/w is docker0.
+### Bind mount: 
+	  its connected b/w  file system to container
+### Tmpfs mount:
+ its connected  between container to memory(ram)
+### Volume:
+ we give only source
+### Mount:
+ we give both source and destination
+### Hosts:
+ it’s machines which running on docker 
+### Entrypont: 
+its used as a arg (it will never change)
+Cmd : we give any image name it change the CMD its cannot effect the entrypoint (cmd used forrun the application )
+
+### Networking: 
+ (ifconfig  & sudo apt install net-tools)we can’t install the docker in our machine we have only two network interfaces those are eth0 & lo, when ever we install docker we check the network by using  ifconfig command add another n/w is docker0.
+
  	Eth0: its tell about which physically connected to the s/m
 	Io:
 	Docker0:   this docker0 network is created only the only in 172.17.0.1 to 255.255.0.0 ip ranges only 
         Lib:  its creates the network interface inside the container only (in these eth0 have docker0 configurations)
 Docker networks are three types
-	Bridge: we use different networks (we used for multiple machines)(we communicate both ip& name in bridge network but in default bridge network we give only ip addresses)
-	Host: we have same system where we create docker installed
-	Null:  no network
+### Bridge: 
+	we use different networks (we used for multiple machines)(we communicate both ip& name in bridge network but in default bridge network we give only ip addresses)
+### Host:
+	 we have same system where we create docker installed
+### Null: 
+ no network
+
 Drawbacks of docker0 is  it’s not have DNS visible .
-BRIDGE N/W:  we move the containers from one network to othe network , in these
+
+### BRIDGE N/W: 
+ we move the containers from one network to othe network , in these
  -d  =  driver string
 On bridge n/w we don’t have volumes docker container build will be failed
-Phpmyadmin: is used for simple log web application
+
+### Phpmyadmin: 
+is used for simple log web application
 Once we create container we can’t change volume(or ) mount
 *docker container connects any number of containers by using host
 

@@ -177,6 +177,8 @@ for maintained desired state of container (we write docker or k8s yaml files)
 using k8s to maintaine desired state and end user  can utilize our application continuously
 (no down time )
 
+![images](./Images/3.png)
+
 
 
 

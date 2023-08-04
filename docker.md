@@ -130,7 +130,7 @@ We replace these alias command by delimage , delcontainer & prunevolume
 	dockerfile is a test file . where we write set of instructions / directives to support to create a docker image
 
 ### docker image
-	docker image iread only templet or file system which as the necessary files run our application inside the docker container
+	docker image is read only templet or file system which has the necessary files run our application inside the docker container
 
 ### docker container vs instance
 	every container has isolated area to cannot destrub them
@@ -179,6 +179,75 @@ using k8s to maintaine desired state and end user  can utilize our application c
 
 ![images](./Images/3.png)
 ![hema](./Images/4.png)
+
+### name spaces
+### micro- services design problem
+### expose the application running inside docker to external world
+
+### Running Docker Containers
+
+#### Interactions
+
+	* We can interact with running or stopped containers
+	* attach: We will be able to connect to containers main process’s STDIN/STDOUT/STDERR.
+	* cp: This allows to send or recieve content to/from container
+	* exec: Execute a command inside containers’s isolation.
+	* logs: Here we can review all the STDERR and STDOUT
+* run jenkins container in detached mode
+
+![hema](./Images/5.png)
+
+* 		docker container logs de50fd695277/jenkins
+*		docker container logs <container id>(or)<container name>
+
+#### Copy files from docker host into contianer
+
+![image](./Images/6.png) 
+
+### Limiting Host resources
+*  Lets review some options for container resource consumption. We will be able to limit access to CPU,memory and block devices
+
+*	hard limits: Thse represent container will not get more than declared value
+
+* Container by default can consume all of host resources (no limits)
+
+
+*Options:
+
+–cpu-period and –cpu-quota: This is specified in micro seconds and will modify cpu limits
+
+–cpu-shares: This manages weight for containers main process. This is soft limit.
+
+–cpus
+
+–memory: maximum amount of memory for your container (hard limit)
+
+–memory-reservation: this is soft limit
+
+–blkio-weight
+
+–blkio-weight-device 
+* 
+
+####  game of life application
+
+* write pipeline for gol in azure -devops 
+
+* and download gameoflife.war
+* sftp 
+* put gameoflife.war
+* bye
+* create docker container and copy the docker upload files
+    
+	docker container cp gameoflife.war <container-id>:/tmp/gameoflife.war
+
+	docker container exec <container-id> /bin/bash
+
+
+
+
+
+
 
 
 

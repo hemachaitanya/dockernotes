@@ -243,6 +243,42 @@ using k8s to maintaine desired state and end user  can utilize our application c
 
 	docker container exec <container-id> /bin/bash
 
+### NETWORKING
+* three types of networkings are present in docker for single node containrs  those are
+
+#### [1] null network
+
+*  no network available in the containers
+
+#### [2] host networks 
+
+* host {instance} ip giving to the  container 
+
+#### [3] bridge network
+
+* in single instance more than one container then any 2 containers communicate by using bridge network . 
+* by using any subnet id we can create these network
+```
+docker network ls
+
+docker network create bridge --subnet <"any-subnet-id"> <name-of-the-network>
+
+### container attached to the network
+
+docker container run -d --name <name-ofthe-container> --network <network-name> httpd
+
+docker exec <container-name> ping -c <any-number> 
+
+### incase oci not support to the ping command inside container execute these commands
+
+apt-get update
+apt-get install iputils-ping -y
+
+
+```
+
+
+
 
 
 

@@ -277,6 +277,13 @@ apt-get install iputils-ping -y
 
 ```
 
+### save our multiple docker images
+
+* docker save -o <name.tar> httpd nginx jenkins/jenkins ..... (images names)
+
+* docker load -i <name.tar>
+
+
 
 
 

@@ -1,0 +1,142 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sss
+  labels: 
+    app: latha
+spec:
+  minReadySeconds: 3
+  replicas: 1
+  selector:
+    matchLabels:
+      app: latha
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxSurge: 50%
+      maxUnavailable: 50%
+  template:
+    metadata:
+      name: hema
+      labels:
+        app: latha
+    spec:
+      containers:
+        - name: bascket
+          image: hema789/ingress:bascket
+          ports:
+            - name: bascket
+              containerPort: 80
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: hema
+  labels:
+    app: latha
+spec:
+  type: ClusterIP
+  selector:
+    app: latha
+  ports:
+    - protocol: TCP
+      port: 80
+    
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rrr
+  labels: 
+    app: hemachaitanya
+spec:
+  minReadySeconds: 3
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hemachaitanya
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxSurge: 50%
+      maxUnavailable: 50%
+  template:
+    metadata:
+      name: hema
+      labels:
+        app: hemachaitanya
+    spec:
+      containers:
+        - name: catalog
+          image: hema789/ingress:catalog
+          ports:
+            - name: catalog
+              containerPort: 80
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: svc-catalog
+  labels:
+    app: hemachaitanya
+spec:
+  type: ClusterIP
+  selector:
+    app: babool
+  ports:
+    - protocol: TCP
+      port: 80
+      
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hhh
+  labels: 
+    app: babool
+spec:
+  minReadySeconds: 3
+  replicas: 1
+  selector:
+    matchLabels:
+      app: babool
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxSurge: 50%
+      maxUnavailable: 50%
+  template:
+    metadata:
+      name: hema
+      labels:
+        app: babool
+    spec:
+      containers:
+        - name: identity
+          image: hema789/ingress:identity
+          ports:
+            - name: identity
+              containerPort: 80
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: svc-identity
+  labels:
+    app: babool
+spec:
+  type: ClusterIP
+  selector:
+    app: babool
+  ports:
+    - port: 80
+      protocol: TCP
+    
+
+

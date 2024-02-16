@@ -283,6 +283,13 @@ apt-get install iputils-ping -y
 
 * docker load -i <name.tar>
 
+* docker container exec -it <containerid> /bin/bash
+
+* cat /etc/os_details
+
+* docker container commit -am <containerid>
+
+
 
 
 

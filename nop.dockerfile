@@ -43,3 +43,13 @@ RUN apt update && apt install unzip -y && \
 EXPOSE 5000
 CMD [ "dotnet", "Nop.Web.dll", "http://0.0.0.0:5000","--urls" ]
 
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0
+RUN apt update && apt install unzip -y
+WORKDIR /nop 
+ADD https://github.com/nopSolutions/nopCommerce/releases/download/release-4.60.5/nopCommerce_4.60.5_NoSource_linux_x64.zip /nop/release-4.60.5/nopCommerce_4.60.5_NoSource_linux_x64.zip
+RUN apt pdate && apt install unzip -y && \
+    unzip /nop/nopCommerce_4.60.5_NoSource_linux_x64.zip
+RUN mkdir /nop/logs && mkdir /nop/bin
+EXPOSE 5000
+CMD ["dotnet","Nop.web.dll","http://0.0.0.0:5000","--urls"]

@@ -419,6 +419,8 @@ apt-get install iputils-ping -y
 
 * password: generated token placed here we can successfully login
 
+* docker container run -d --name container-name --cpu 2 -m 500m httdp:version 
+
 
 
 

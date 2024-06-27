@@ -353,6 +353,7 @@ apt-get install iputils-ping -y
 
 ```
 
+<<<<<<< HEAD
 * using bridge n/w we can move the container from one n/w to another n/w
 
 * docker network inspect network-name
@@ -453,6 +454,151 @@ volumes:
 
 
 
+=======
+### save our multiple docker images
+
+* docker save -o <name.tar> httpd nginx jenkins/jenkins ..... (images names)
+
+* docker load -i <name.tar>
+
+* docker container exec -it <containerid> /bin/bash
+
+* cat /etc/os_relese
+
+* lsb_release -a
+
+* hostnamectl
+
+* curl ifconfig.me
+
+* cat /etc/issue
+
+* cat /etc/*version
+
+* docker container commit -m container-id
+
+* docker image pull nameof-the-image
+
+* docker image build -t imagename:version path-to-the-dockerfile
+
+* docker image save -o name.tar image1 image2 image3 ......
+
+* docker image rm -f $(docker images ls -a)
+
+* aws s3 cp source-tar.file destination-s3-uri
+
+* wget s3-object-uri
+
+* docker image import url-of-s3(or) tarfile
+
+* docker import path-of-tarfile (its creates the one extra image for all images merge )
+
+* docker load -i tar.file
+
+* docker container run -it image-name /bin/bash (changes inside container)
+
+* docker container commit -m message container-id newimage🉐
+
+* docker image ls (list new-image also)
+
+* docker image inspect image-name
+
+* docker container run -d -P image-name
+
+#### after running the container only we check the logs or we enter inside the container using -it
+
+* docker container logs container-id or container-name
+
+* docker image history image-name (it shows the image  docker file)
+
+* docker image rm image-name
+
+* docker image prune -a (or) -f (all unsed images were deleted)
+
+* docker image tag old-name new-image-name
+
+* docker image pull chentex/random-logger
+
+* docker container run image-name
+
+* docker ps
+
+* docker kill container-id
+
+* docker container start container-id
+
+* docker attach container-id (only running containers shows logs)
+
+* docker top container-id
+
+* docker network create --subnet=192.168.0.0/24 network-name
+
+* docker network connect network-name container-id (or) container-name
+
+* docker inspect container-id
+
+* docker inspect network-name
+
+### docker network
+
+
+* by defalut docker have 3 networks
+
+  #### host network
+
+  * by deafault container will be created by host network means our server ip through created 
+#### bridge network 
+
+* we are giving some ip address to the subnet trough that perticular ip range attach  (create)to  the container
+
+* in case docker container first it will be attached to defalut host network after that it will be created the bridge network ... definatly its change from one n/w to anothe n/w
+
+  docker network create --subnet=192.167.0.0/24 kk
+
+     docker container run -d -P httpd
+
+     docker container ls
+
+     docker inspect 2fb4ce813e2e
+
+     docker network connect kk 2fb4ce813e2e
+
+     docker container inspect 2fb4ce813e2e
+
+  #### null network
+
+  * 
+
+  #### copy
+
+  * one textfile copied from outside in the vm to container by using below command
+ 
+  * 	docker cp source.file container-id:/path/of/folders
+ 
+  * path of the folders will easily copy to the inside container folder path will be created and copied
+ 
+#### docker system commands
+
+* docker system df (list the total  images , conatainer(active , stoped) ,local volumes , build cache )
+
+* docker system prune (delete un used objects )
+
+* docker system events ()
+
+* docker system info (all os , version , images , containers ......)
+
+#### docker login
+
+* in case we cannot login our password
+
+* we can  also securly login with  secret token
+
+* docker login  -u hema999
+
+* password: generated token placed here we can successfully login
+
+* docker container run -d --name container-name --cpu 2 -m 500m httdp:version 
+>>>>>>> 122b8ff0ddf808b72618e3bd10acefec41929005
 
 
 

@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: hemalatha
+  labels:
+    app: webapp
+spec:
+  minReadySeconds: 3
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  strategy: 
+    rollingUpdate: 
+      maxSurge: 30%
+      maxUnavailable: 50%
+    type: RollingUpdate
+  template:
+    metadata:
+      name: hemalatha
+      labels:
+        app: webapp
+    spec:
+      containers: 
+        - name: hema
+          image: caddy
+          ports:
+            - containerPort: 80
+              protocol: TCP 
+        - name: hema1
+          image: hema789/spc:work
+          ports: 
+            - containerPort: 8080
+              protocol: TCP
+    
+      
+  
+    
+

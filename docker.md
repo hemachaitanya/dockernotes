@@ -246,6 +246,7 @@ using k8s to maintaine desired state and end user  can utilize our application c
 (no down time )
 
 ![images](./Images/3.png)
+
 ![hema](./Images/4.png)
 
 ### name spaces
@@ -276,7 +277,9 @@ using k8s to maintaine desired state and end user  can utilize our application c
 
 #### Copy files from docker host into contianer
 
-![image](./Images/6.png) 
+![image](./Images/6.png)
+
+
 
 ### Limiting Host resources
 

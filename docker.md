@@ -454,6 +454,15 @@ volumes:
 
 * docker container cp 1.txt <container-name>:/tmp/
 
+## git merge conflicts 
+
+* how to accept gi-merge-conflicts 
+
+![hema](./Images/mergeconflicts.png)
+
+
+
+
 
 
 

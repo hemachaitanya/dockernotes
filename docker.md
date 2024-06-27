@@ -14,30 +14,44 @@ DATABASE: data base not stores audios and videos it stores data of movies name ,
 ![images](./Images/2.png)
 
 We book  one ticket that ticket  number stores in database but the ticket booking pdf stores in objectstore.
+
 Install: when ever you want to crome module systems(as user we update our whatsup)
+
 Deploy:  take my application on some other place run on the servers (to give update on  organization )
 
 In our ubuntu t2.micro instance we run one spring petclinic project but by using docker container  we run approximately 4 spring pet clinic projects. 
 By using container we save our space & also continuous integration will be present on different ports.
 
+
 Docker architecture 
+
 Generation1: multiple services run by one network (monolithic)
+
 Generation2: micro services (each server have different)cost is high
+
 Generation3:docker (reducing cost )
+
 Registry: collection of images hosted  for reuse is called registry
+
 Dockershim: when we update the docker then also container will not stoped (it will be continuous to run)
+
 OCI:(open container initiative)
+
  once the container is created the parent of the container will be dockershim.
 To build docker image & container
-###Docker image <command> < image>:<tag>
+
+### Docker image <command> < image>:<tag>
+
 Docker image pull nginx : version
+
 Ex: docker image pull busybox:3.15
+
 To see the  all build images we use {docker image ls -q }
 
 To see the run images only we use {docker image ls}
 
 
-###Docker container <command> <container name>:<tags>
+### Docker container <command> <container name>:<tags>
 
 Docker container run/create nginx
 
@@ -62,6 +76,7 @@ Remove al containers at a time
 		{docker container rm $(docker container ls -a -q )}
 
 ### Volume:
+
  when we delete the container total information can be deleted so we over come this problem to create the volumes
 
 These volumes are two types those are
@@ -71,16 +86,33 @@ These volumes are two types those are
 
 Volumes are two types 
 ### Bind mount: 
+
 	  its connected b/w  file system to container
+	   docker host nad container have same user that tim eonly we use bind mount .
+
+	Ex: docker container run -d --name=hemacontaier --mount "source=/tmp , target=/tmp , type=bind" ubuntu:22.04 sleep 1d
+
+	* bind mount is connected between files/m to docker container 
+
+
 ### Tmpfs mount:
- its connected  between container to memory(ram)
+
+ * its connected  between container to memory(ram)
+
 ### Volume:
+
+
  we give only source
 ### Mount:
+
  we give both source and destination
+
 ### Hosts:
+
  it’s machines which running on docker 
-### Entrypont: 
+
+### Entrypont
+: 
 its used as a arg (it will never change)
 we cannot override the code
 
@@ -89,18 +121,51 @@ we can over ride the code & its acts as argument for entrypoint
  we give any image name it change the CMD its cannot effect the entrypoint (cmd used forrun the application )
 
 ### Networking: 
- (ifconfig  & sudo apt install net-tools)we can’t install the docker in our machine we have only two network interfaces those are eth0 & lo, when ever we install docker we check the network by using  ifconfig command add another n/w is docker0.
+
+ (ifconfig  & sudo apt install net-tools)
+ 
+ * we can’t install the docker in our machine we have only two network interfaces those are eth0 & lo, when ever we install docker we check the network by using  ifconfig command add another n/w is docker0.
 
  	Eth0: its tell about which physically connected to the s/m
 	Io:
 	Docker0:   this docker0 network is created only the only in 172.17.0.1 to 255.255.0.0 ip ranges only 
         Lib:  its creates the network interface inside the container only (in these eth0 have docker0 configurations)
 Docker networks are three types
-### Bridge: 
+
+### Bridge:
+
+
 	we use different networks (we used for multiple machines)(we communicate both ip& name in bridge network but in default bridge network we give only ip addresses)
+
+	* manually we create some subnet ranges
+
+	Ex: docker network ls
+
+		docker network create --subnet 192.168.1.0/24 network-name
+
+		docker network create --subnet 192.168.1.0/24 --gateway 192.168.1.1 my-custom-network
+
+
+		docker network create --driver host  hostnetwork-name
+
+		docker network inspect network-name
+
+		docker network connect network-name container-name/id
+
+
+
+
+
 ### Host:
-	 we have same system where we create docker installed
-### Null: 
+
+	 we have same system where we create docker installed && local machine ip addresses asssigned to the bridge container , local vm subnet ranges will be used to create contaieer ip .
+
+
+* incase container connected with host network we  can connect with bridge network the container ip will be changed.
+
+
+### Null:
+
  no network
 
 Drawbacks of docker0 is  it’s not have DNS visible .
@@ -116,12 +181,15 @@ Once we create container we can’t change volume(or ) mount
 *docker container connects any number of containers by using host
 
 DOCKERFILE: set of instructions
+
 Name space:Docker uses namespaces of various kinds to provide the isolation that containers need in order to remain portable and refrain from affecting the remainder of the host system.
 
 
 Alias
 Alias delimage= ‘docker image rm $(docker image ls -a -q)’
+
 Alias delcontainer= ‘docker container rm -f  $(docker container ls -a -q)’
+
 Alias  prunevolume= ‘docker volume prune $(docker volumels -a -q)’
 
 We replace these alias command by delimage , delcontainer & prunevolume
@@ -189,15 +257,21 @@ using k8s to maintaine desired state and end user  can utilize our application c
 #### Interactions
 
 	* We can interact with running or stopped containers
+
 	* attach: We will be able to connect to containers main process’s STDIN/STDOUT/STDERR.
+
 	* cp: This allows to send or recieve content to/from container
+
 	* exec: Execute a command inside containers’s isolation.
+
 	* logs: Here we can review all the STDERR and STDOUT
+
 * run jenkins container in detached mode
 
 ![hema](./Images/5.png)
 
 * 		docker container logs de50fd695277/jenkins
+
 *		docker container logs <container id>(or)<container name>
 
 #### Copy files from docker host into contianer
@@ -205,6 +279,7 @@ using k8s to maintaine desired state and end user  can utilize our application c
 ![image](./Images/6.png) 
 
 ### Limiting Host resources
+
 *  Lets review some options for container resource consumption. We will be able to limit access to CPU,memory and block devices
 
 *	hard limits: Thse represent container will not get more than declared value
@@ -212,7 +287,7 @@ using k8s to maintaine desired state and end user  can utilize our application c
 * Container by default can consume all of host resources (no limits)
 
 
-*Options:
+Options:
 
 –cpu-period and –cpu-quota: This is specified in micro seconds and will modify cpu limits
 
@@ -244,6 +319,7 @@ using k8s to maintaine desired state and end user  can utilize our application c
 	docker container exec <container-id> /bin/bash
 
 ### NETWORKING
+
 * three types of networkings are present in docker for single node containrs  those are
 
 #### [1] null network
@@ -276,6 +352,111 @@ apt-get install iputils-ping -y
 
 
 ```
+
+* using bridge n/w we can move the container from one n/w to another n/w
+
+* docker network inspect network-name
+
+* docker network create -d bridge --subnet 192.168.1.0/24 my-bridge alpine sleep d 
+
+* docker container exec c2 ping -c 4 c3
+		 
+		 here c2 , c3 = containers 
+		      c = howmany times we ping the container
+
+* defalut bridge network containers communicate with ips only
+
+
+### docker swarm 
+
+* two containrs communicate with each other with 2 different vm 's at that time we use overlay network 
+
+
+```yaml
+version: '3.8'
+
+services:
+  gameoflife:
+    image: gameoflife-image:latest
+    container_name: gameoflife
+    networks:
+      - my-bridge-network
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: gameoflife_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - my-bridge-network
+
+networks:
+  my-bridge-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+
+```
+* docker compose up
+
+* docker compose down
+
+* docker image build -d image-name docker-file-path
+
+* docker image pull image-name
+
+* docker container run -d -P image-name
+
+* docker contaier run -it -d image-name
+
+* docker container exec -it container-id /bin/sh
+
+* docker container stop container-id
+
+* docker container kill/rm/prune <container-id>
+
+* docker container rn -f $(docker container ls -a -q)
+
+* docker container run -d -p 3000:80 httpd
+
+	docker container exec -it httpd /bin/sh
+
+	mkdir -p /ram/rahim/rabert
+
+	cd /ram/rahim/rabert
+
+	touch 1.txt
+
+	echo "hai hemachaitanya dear" > 1.txt
+
+* docker commit httpd-id username/imagename (this is use to create new changes include image from container)
+
+* docker container logs container-id
+
+* docker image save -o <hema.tar> image1 image2 image3
+
+* get /home/ubuntu/hema.tar ~/.
+
+* docker image load -i <hema.tar>
+
+* docker attach <container-id>
+
+* docker container cp 1.txt <container-name>:/tmp/
+
+
+
+
+
+
+
 
 
 

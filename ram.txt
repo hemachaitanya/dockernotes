@@ -1,0 +1,25 @@
+<VirtualHost *:80>
+
+ServerAdmin admin@linuxhint.com
+
+DocumentRoot /var/www/html/wordpress
+
+ServerName linuxhint.com
+
+ServerAlias www.linuxhint.com
+
+<Directory /var/www/html/wordpress/>
+
+Options FollowSymLinks
+
+AllowOverride All
+
+Require all granted
+
+</Directory>
+
+ErrorLog ${APACHE_LOG_DIR}/error.log
+
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>

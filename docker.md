@@ -444,6 +444,12 @@ volumes:
 
 * docker container logs container-id
 
+* docker stats containr-id
+
+* docker ps
+
+* docker container run -d -P image-id/name --cpu=2Gi --memory=0.5Gb
+
 * docker image save -o <hema.tar> image1 image2 image3
 
 * get /home/ubuntu/hema.tar ~/.

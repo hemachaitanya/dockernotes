@@ -1,4 +1,10 @@
-DOCKER
+# DOCKER
+
+## docker sheet sheet 
+
+ ![docker](./Images/docker-cheetsheat.png)
+
+[dockercommands](https://dockerlabs.collabnix.com/docker/cheatsheet/)
 
 
 * Docker image and container : image nothing but package & container nothing but application . we want to build the package we required some  application .

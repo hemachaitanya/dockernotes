@@ -1,4 +1,9 @@
+
+[k8s trubleshoot](https://directdevops.blog/2023/10/03/completek8s-classroomnotes-03-oct-2023/)
+
 # DOCKER
+
+
 
 * docker main components
 
@@ -10,6 +15,9 @@ Docker Networking allows containers to communicate with each other and with exte
 
 #### Bridge:
 The default mode, where containers connect to a private internal network on the host, allowing them to communicate with each other.
+
+docker network create --driver bridge --subnet 192.168.10.0/24 my-bridge-network
+
 
 #### Host:
 Removes network isolation between the container and the Docker host, using the host’s networking directly.

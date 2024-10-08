@@ -18,6 +18,8 @@ The default mode, where containers connect to a private internal network on the 
 
 docker network create --driver bridge --subnet 192.168.10.0/24 my-bridge-network
 
+docker container run -d --name hema network hema image-name
+
 
 #### Host:
 Removes network isolation between the container and the Docker host, using the host’s networking directly.

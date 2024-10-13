@@ -1,5 +1,11 @@
 # DOCKER
 
+
+
+### containeraization and vertualization
+
+![hema](./Images/vm%20%26containeraization.png)
+
 ## docker sheet sheet 
 
  ![docker](./Images/docker-cheetsheat.png)

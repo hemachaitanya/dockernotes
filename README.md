@@ -1,5 +1,92 @@
 ## dockernotes
 
+## docker file 
+
+* docker file is a text document. . to collect all necessary commands to build an image with using some instructions 
+
+*Here are the Dockerfile instructions:
+
+Dockerfile Instructions
+1. *FROM*: Specifies the base image for the new image.
+```
+FROM python:3.9-slim
+```
+
+2. *RUN*: Executes a command during the build process.
+```
+RUN apt-get update && apt-get install -y python3-pip
+```
+
+3. *CMD*: Sets the default command to run when the container starts.
+```
+CMD ["python", "app.py"]
+```
+
+4. *ENTRYPOINT*: Configures the container to run as an executable.
+```
+ENTRYPOINT ["python"]
+```
+
+5. *COPY*: Copies files from the host to the container.
+```
+COPY . /app/
+```
+
+6. *ADD*: Copies files from the host to the container, supporting URLs and tar archives.
+```
+ADD https://example.com/file.txt /app/file.txt
+```
+
+7. *ENV*: Sets environment variables for the container.
+```
+ENV NAME=John Doe
+```
+
+8. *WORKDIR*: Sets the working directory for the container.
+```
+WORKDIR /app
+```
+
+9. *VOLUME*: Creates a volume for data persistence.
+```
+VOLUME ["/app/data"]
+```
+
+10. *EXPOSE*: Exposes a port for communication.
+```
+EXPOSE 80
+```
+
+11. *LABEL*: Adds labels to the image for organization.
+```
+LABEL maintainer="John Doe <john.doe@example.com>"
+```
+
+12. *ARG*: Defines a build-time argument.
+```
+ARG BUILD_VERSION=1.0
+```
+
+13. *ONBUILD*: Specifies a command to run when the image is used as a base image.
+```
+ONBUILD RUN echo "Image built"
+```
+
+14. *STOPSIGNAL*: Specifies the signal to send to the container when it's stopped.
+```
+STOPSIGNAL SIGTERM
+```
+
+15. *HEALTHCHECK*: Specifies a command to run to check the container's health.
+```
+HEALTHCHECK --interval=1m --timeout=3s --retries=3 CMD curl -f http://localhost:80 || exit 1
+```
+
+16. *SHELL*: Specifies the shell to use for RUN, CMD, and ENTRYPOINT instructions.
+```
+SHELL ["/bin/bash", "-c"]
+```
+
 ## docker compose
 
 * docker compose version controle , self documents , significantly easy to management

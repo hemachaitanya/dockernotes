@@ -12,9 +12,25 @@
 
 * docker-compose down --volumes
 
-* 
+* docker 
 
 ### create volume 
+
+* docker container run -d --mount source=hema-vol,target=/app nginx
+
+* docker container run -d --mount type=bind,source=/tmp,target=/app nginx
+
+* docker volume ls
+
+* docker volume inspect hema-vol
+
+* docker system df
+
+* docker system events
+
+* docker system info
+
+* docker system prune
 
 
 * docker volume create volume-name

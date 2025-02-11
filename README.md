@@ -1,20 +1,10 @@
-## dockernotes
+## rocker notes
 
-## docker file 
+## phony target 
 
-* docker file is a text document. . to collect all necessary commands to build an image with using some instructions 
-
-*Here are the Dockerfile instructions:
-
-Dockerfile Instructions
-1. *FROM*: Specifies the base image for the new image.
+ process.
 ```
-FROM python:3.9-slim
-```
-
-2. *RUN*: Executes a command during the build process.
-```
-RUN apt-get update && apt-get install -y python3-pip
+RUN apt-get update && apt-get  -y python3-pip
 ```
 
 3. *CMD*: Sets the default command to run when the container starts.

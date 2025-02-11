@@ -126,7 +126,9 @@ SHELL ["/bin/bash", "-c"]
 
 * docker container exec -it my_sql mysql -u root -p >> press enter it ask password: admin
 
-* inside the container run the database commandes
+* inside the container run the database commands 
+
+* docker run --name local-registry -d --restart=always -p 5000:5000 registry:2
 
 * CREATE DATABASE database_name;
 

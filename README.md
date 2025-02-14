@@ -1,4 +1,4 @@
-## rocker notes
+## Docker notes
 
 ## phony target 
 
